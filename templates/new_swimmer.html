@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <h2 style = "text-align: center;">New Swimmer</h2>
+		
+      {% for message in form.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      <form action = "/new_swimmer" method = post>
+         <fieldset>
+            <legend>New Swimmer</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.name.label }}<br>
+               {{ form.name }}
+               <br>
+               
+               {{ form.gender.label }} {{ form.gender }}
+
+               {{ form.team.label }}<br>
+               {{ form.team }}
+               <br>
+               
+               {{ form.date.label }}<br>
+               {{ form.date }}
+               <br>
+               <br>
+               {{ form.submit }}
+            </div>
+            
+         </fieldset>
+      </form>
+      
+   </body>
+</html>

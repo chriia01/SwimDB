@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/swimDB.css"
+    </head>
+   <body>
+   
+      <h2 style = "text-align: center;">Add Times</h2>
+		
+      {% for message in form.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      <form action = "/add_times/ {{ swim_id }}" method = post>
+         <fieldset>
+            <legend>Add Times</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               <br>
+               {{ form.event.label}}<br>
+               {{ form.event}}
+               <br>
+               <br>
+               {{ form.minutes.label }}<br>
+               {{ form.minutes (class_='smallerBoxes')}}
+               {{ form.seconds (class_='smallerBoxes')}}
+               {{ form.milliseconds (class_='smallerBoxes')}}
+               <br>
+               <br>
+               {{ form.dateOfTime.label }}<br>
+               {{ form.dateOfTime }}
+               <br>
+               <br>
+               {{ form.submit }}
+            </div>
+         </fieldset>
+      </form>
+      
+   </body>
+</html>

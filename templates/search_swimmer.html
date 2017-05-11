@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+    <h1 class="display-1 text-center">{{ team_or_name }}</h1>
+
+    <table class="table table-bordered table-hover">
+		<thead class="thead-inverse">
+            <tr>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Gender</th>
+				<th>Birthdate</th>	
+            </tr>
+		</thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td><a href= "/swimmer_page={{item.id}}">{{item.name}}</a></td>
+                    <td>{{item.team}}</td>
+                    <td>{{item.gender}}</td>
+                    <td>{{item.birthdate}}</td>
+                </tr>
+            {% endfor %}
+		</tbody>
+    </table>
+{% endblock %}

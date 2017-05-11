@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}More Info{% endblock %}
+
+{% block body %}
+	<h3 class="text-center">Team: {{ data.team }}</h3>
+	{% if data.gender == "M" %}
+	<h3 class="text-center">Gender: Male</h3>
+	{% else %}
+	<h3 class="text-center">Gender: Female</h3>
+	{% endif %}
+	<h3 class="text-center">Age: {{ age }}</h3>
+
+
+
+{% endblock %}

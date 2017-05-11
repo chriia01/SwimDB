@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}SwimDB{% endblock %}
+
+{% block body %}
+    <h1 class="display-1 text-center">SwimDB</h1>
+    <p class="text-center">This is a web application to help display various swimmers and <br>
+        their times. You can choose to look up either a swimmer or a time. In addition, <br>
+        you can choose to look at the top swimmers in every event. Lastly, if a swimmer <br>
+        you are looking for is not currently in the database, you can choose to add <br>
+        him or her.
+    </p>
+
+    <h3 class="text-center"> Search for a swimmer or a team</h3>
+    <div class='form-group'>
+        <div class="text-center col-md-6 offset-md-3">
+            <input type="text" class="form-control text-center" id="search_box">
+        </div>
+        <div class="text-center">
+            <button type="button" onclick="search_swimmer()" class="btn btn-outline-primary btn-lg" id="course_search_button">Search Swimmer</button>
+            <button type="button" onclick="search_team()" class="btn btn-outline-danger btn-lg" id="number_search_button">Search Team</button>
+        </div>
+    </div>
+    <br>
+    <h3 class="text-center">Input additional data</h3>
+
+    <div class="form-group text-center">
+        <button type="button" onclick="add_swimmer()" class="btn btn-outline-success btn-lg" id="new_swimmer_button">Add New Swimmer</button>
+    </div>
+
+{% endblock %}

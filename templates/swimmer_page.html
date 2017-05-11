@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+    <h1 class="display-1 text-center">{{ real_swim_name.name }}</h1>
+
+    <div class = text-center>
+        <button type="button" onclick="new_times({{ real_swim_name.id}})" class="btn btn-outline-danger btn-lg" id="new_time_button">Add times</button>
+        <button type="button" onclick="" class="btn btn-outline-primary btn-lg" id="more_info_loader">More Info</button>
+        <button type="button" onclick="window.location.href='/'" class="btn btn-outline-primary btn-lg" id="more_info">Home</button>
+
+    </div>
+    <br>
+    <div id="contenthere"></div>
+
+    <script>
+
+	$(document).ready(function(){
+    	$("#more_info_loader").click(function(){
+        	$("#contenthere").load("/moreinfo={{real_swim_name.id}}");
+    	});
+	});
+
+	</script>
+    <br>
+
+    <!--
+
+    <form action="">
+    <select name="Event" onchange="showEvent(this.value, {{real_swim_name.id}} )">
+	<option value="">Select an event:</option>
+	<option value="50 freestyle">50 Freestyle</option>
+	<option value="100 freestyle">100 Freestyle</option>
+	<option value="200 freestyle">200 Frestyle</option>
+	<option value="500 freestyle">500 Freestyle</option>
+	<option value="1000 freestyle">1000 Freestyle</option>
+	<option value="1650 freestyle">1650 Frestyle</option>
+
+	<option value="100 butterfly">100 Butterfly</option>
+	<option value="200 butterfly">200 Butterfly</option>
+
+	<option value="100 backstroke">100 Backstroke</option>
+	<option value="200 backstroke">200 Backstroke</option>
+
+	<option value="100 breaststroke">100 Frestyle</option>
+	<option value="100 breaststroke">200 Frestyle</option>
+
+	<option value="200 im">200 IM</option>
+	<option value="400 im">400 IM</option>
+	</select>
+	</form>
+	<div id='txtHint'></div>
+
+	<script>
+		function showEvent(str, id) {
+			var xhttp;
+			var ourText;
+			if (str == "") {
+				document.getElementById('txtHint').innerHTML = "";
+				return
+			}
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("txtHint").innerHTML = this.responseText;
+				}
+			}
+			xhttp.open("GET", '/event=' + str +'/swimmer='+id.toString(),true)
+			console.log(xhttp[1])
+			xhttp.send();
+
+
+
+		}
+	</script 
+	-->
+
+
+    <br>
+    <table class="table table-bordered table-hover">
+		<thead class="thead-inverse">
+            <tr>
+                <th>Event</th>
+                <th>Time</th>
+                <th>Date of swim</th>
+            </tr>
+		</thead>
+		<tbody>
+			{% if swim_name %}
+				{% for item in swim_name %}
+					<tr>
+						<td>{{item.race.distance}} {{item.race.stroke}}</td>
+						<td>{{item.swimmer_race.time}}</td>
+						<td>{{item.swimmer_race.date_of_time}}</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+
+{% endblock %}
