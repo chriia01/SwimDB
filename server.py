@@ -6,10 +6,17 @@ from forms import SwimmerForm, TimeForm
 from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from datetime import date, time
 from sqlalchemy import Table, Column, Integer, String, Date, ForeignKey, create_engine, Time
+from flask.ext.sqlalchemy import SQLAlchemy
+import os
+
+app = Flask(__name__)
+app.secret_key = 'development key'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+engine = SQLAlchemy(app)
 
 
 #Create engine, allowing us to create tables
-engine = create_engine('sqlite:///swim.db')
+#engine = create_engine('sqlite:///swim.db')
 Base = declarative_base()
 
 #Create a session, letting us add items to table
@@ -94,9 +101,6 @@ session.add(swimmer_race(swimmer_id=2, race_id=4, time=time(0,4,59,93) , date_of
 #Push additions
 session.commit()
 
-
-app = Flask(__name__)
-app.secret_key = 'development key'
 
 @app.route('/')
 def home():
