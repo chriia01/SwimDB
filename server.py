@@ -10,6 +10,7 @@ from sqlalchemy import Table, Column, Integer, String, Date, ForeignKey, create_
 
 #Create engine, allowing us to create tables
 engine = create_engine('sqlite:///swim.db')
+engine = create_engine('postgres://pneaylsiyhfxfp:6207f1c5d8307988100378503d5b1c44ee76cc1e27a4bb435f50dc4893d4b566@ec2-23-21-220-167.compute-1.amazonaws.com:5432/dcha9klkrada3q')
 Base = declarative_base()
 
 #Create a session, letting us add items to table
