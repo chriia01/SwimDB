@@ -91,17 +91,17 @@ if session.query(race.id).filter_by(id=1).count() == 0:
     session.add(swimmer(name="Sarah Lepeche", gender="F", team="Coe", birthdate=date(1995,7,23)))
 
 
-	#Ian's times. Time is the way it is because it goes time(hr, min, sec, ms)
-	session.add(swimmer_race(swimmer_id=1, race_id=1, time=time(0,0,21,66) , date_of_time=date(2017,2,9)))
-	session.add(swimmer_race(swimmer_id=1, race_id=2, time=time(0,0,47,85) , date_of_time=date(2017,2,11)))
-	session.add(swimmer_race(swimmer_id=1, race_id=5, time=time(0,11,11,9), date_of_time=date(2016, 11,5)))
-	session.add(swimmer_race(swimmer_id=1, race_id=7, time=time(0,0,56,44) , date_of_time=date(2017,2,10)))
-	 
-	#Gunnar's times. Time is the way it is because it goes time(hr, min, sec, ms)
-	session.add(swimmer_race(swimmer_id=2, race_id=1, time=time(0,0,22,58) , date_of_time=date(2017,2,9)))
-	session.add(swimmer_race(swimmer_id=2, race_id=7, time=time(0,0,52,78) , date_of_time=date(2017,2,10)))
-	session.add(swimmer_race(swimmer_id=2, race_id=8, time=time(0,1,59,26) , date_of_time=date(2017,2,11)))
-	session.add(swimmer_race(swimmer_id=2, race_id=4, time=time(0,4,59,93) , date_of_time=date(2016,2,11)))
+    #Ian's times. Time is the way it is because it goes time(hr, min, sec, ms)
+    session.add(swimmer_race(swimmer_id=1, race_id=1, time=time(0,0,21,66) , date_of_time=date(2017,2,9)))
+    session.add(swimmer_race(swimmer_id=1, race_id=2, time=time(0,0,47,85) , date_of_time=date(2017,2,11)))
+    session.add(swimmer_race(swimmer_id=1, race_id=5, time=time(0,11,11,9), date_of_time=date(2016, 11,5)))
+    session.add(swimmer_race(swimmer_id=1, race_id=7, time=time(0,0,56,44) , date_of_time=date(2017,2,10)))
+    
+    #Gunnar's times. Time is the way it is because it goes time(hr, min, sec, ms)
+    session.add(swimmer_race(swimmer_id=2, race_id=1, time=time(0,0,22,58) , date_of_time=date(2017,2,9)))
+    session.add(swimmer_race(swimmer_id=2, race_id=7, time=time(0,0,52,78) , date_of_time=date(2017,2,10)))
+    session.add(swimmer_race(swimmer_id=2, race_id=8, time=time(0,1,59,26) , date_of_time=date(2017,2,11)))
+    session.add(swimmer_race(swimmer_id=2, race_id=4, time=time(0,4,59,93) , date_of_time=date(2016,2,11)))
 
 
 #Push additions
