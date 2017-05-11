@@ -31,7 +31,7 @@ class TimeForm(Form):
     event = SelectField("Event", [ validators.Required("Please select an event")] ,choices = events )
     minutes = IntegerField("Time (min,sec,ms)", [validators.NumberRange(min=-1,max=59, message="Please enter a number between 0 and 59")], default=0)
     seconds = IntegerField("Seconds",[validators.Required("Please enter seconds"), validators.NumberRange(min=0,max=59, message="Please enter a number between 0 and 59")])
-    milliseconds = IntegerField("Milliseconds",[validators.Required("Please enter milliseconds"), validators.NumberRange(min=0,max=59, message="Please enter a number between 0 and 59")])
+    milliseconds = IntegerField("Milliseconds",[validators.Required("Please enter milliseconds"), validators.NumberRange(min=0,max=99, message="Please enter a number between 0 and 99")])
     dateOfTime = TextField("Date of time (YYYY,M,D)", [validators.Required("Please enter a birthdate")])
 
     submit = SubmitField("Submit")
