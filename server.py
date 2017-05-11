@@ -11,12 +11,10 @@ import os
 
 app = Flask(__name__)
 app.secret_key = 'development key'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-engine = SQLAlchemy(app)
 
 
 #Create engine, allowing us to create tables
-#engine = create_engine('sqlite:///swim.db')
+engine = create_engine('sqlite:///swim.db')
 Base = declarative_base()
 
 #Create a session, letting us add items to table
